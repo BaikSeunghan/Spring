@@ -1,15 +1,26 @@
 package hello.core.order;
 
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+
+
+    private final MemberRepository memberRepository;
+    //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    //    할인 정책이 '고정금액'할인에서 '정률%'할인으로 변경되었다
+    //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+    //    이렇게하면, DIP를 위반하게 되기때문에 구현부를 지운다.
+    private final DiscountPolicy discountPolicy;
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
+
+
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
