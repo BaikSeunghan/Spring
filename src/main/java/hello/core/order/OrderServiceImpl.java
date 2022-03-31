@@ -6,8 +6,6 @@ import hello.core.member.MemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-
-
     private final MemberRepository memberRepository;
     //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     //    할인 정책이 '고정금액'할인에서 '정률%'할인으로 변경되었다
@@ -18,10 +16,6 @@ public class OrderServiceImpl implements OrderService{
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-
-
-
-
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         Member member = memberRepository.findById(memberId);
@@ -30,4 +24,8 @@ public class OrderServiceImpl implements OrderService{
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
 
+    // 테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }

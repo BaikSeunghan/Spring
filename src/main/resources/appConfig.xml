@@ -16,4 +16,5 @@ www.springframework.org/schema/beans/spring-beans.xsd">
     </bean>
 
     <bean id="discountPolicy" class="hello.core.discount.RateDiscountPolicy" />
+
 </beans>
