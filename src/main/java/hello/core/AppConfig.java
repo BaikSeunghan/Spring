@@ -17,8 +17,8 @@ import org.springframework.context.annotation.Configuration;
 // 객체의 생성과 연결을 담당
 // AppConfig을 통해 객체를 생성하고 연결하는 역할과 실행하는 역할이 명확히 분리됐다(관심사 분리)
 
-//스프링으로 전환해보자 @Configuration 붙이고 각 메소드에 @Bean을 붙인다
-//@Bean을 붙이면 스프링 컨테이너에 담긴다
+// 스프링으로 전환해보자 @Configuration 붙이고 각 메소드에 @Bean을 붙인다
+// @Bean을 붙이면 스프링 컨테이너(ApplicationContext)에 담긴다
 @Configuration
 public class AppConfig {
 
